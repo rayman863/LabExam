@@ -4,18 +4,20 @@ var userModel 	= require.main.require('./models/adminModel');
 var router 		= express.Router();
 
 router.get('/', function(req, res){
+	res.render('admin/index');
+});
+
+router.get('/AllEmployeeList', function(req, res){
 	userModel.getAll(function(results){
-		res.render('admin/index', { userList : results, uname: req.session.username});
+		res.render('admin/emplist', { userList : results, uname: req.session.username});
 	});
 });
 
-
-router.get('/create', function(req, res){
+router.get('/AddEmployee', function(req, res){
 	res.render('admin/addemp');
 });
 
-
-router.post('/create', [
+router.post('/AddEmployee', [
 	// username must not be empty
 	body('uname').notEmpty().isLength({ min: 8 }),
 	// password must be at least 8 chars long
