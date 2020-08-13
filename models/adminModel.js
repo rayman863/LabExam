@@ -36,9 +36,9 @@ module.exports ={
 	},
 
 	insert: function(user, callback){
-		var sql = "insert into user values(?, ?, ?, ?)";
+		var sql = "INSERT INTO `admin`(`username`, `password`, `type`, `phone`, `gender`, `designation`) VALUES (?,?,?,?,?,?)";
 
-		db.execute(sql, ['', user.uname, user.password, user.type], function(status){
+		db.execute(sql, [user.uname, user.password, user.type, user.phone, user.gender, user.designation], function(status){
 			if(status){
 				callback(true);
 			}else{
