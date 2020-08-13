@@ -6,6 +6,37 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <h2>login successfull</h2>
+    <!-- <a href="/home">Back</a>| 
+	<a href="/logout">Logout</a> -->
+	
+	
+	<h3>All EMP List</h3>
+	<table border="1">
+		<tr>
+			<th>EMP ID</th>
+			<th>USERNAME</th>
+			<th>PASSWORD</th>		
+			<th>TYPE</th>
+			<th>PHONE</th>
+			<th>GENDER</th>
+			<th>DESIGNATION</th>
+			<th>ACTION</th>
+		</tr>
+
+		<% for(var i=0; i < userList.length; i++){ %>
+		<tr>
+			<td><%= userList[i].empid %></td>
+			<td><%= userList[i].username %></td>
+			<td><%= userList[i].password %></td>
+			<td><%= userList[i].type %></td>
+			<td><%= userList[i].phone %></td>
+			<td><%= userList[i].gender %></td>
+			<td><%= userList[i].designation %></td>
+			<td><a href="/admin/edit/<%= userList[i].id %>">EDIT</a> | <a href="/admin/delete/<%= userList[i].id %>"> DELETE </a></td>
+		</tr>
+		<% } %>
+    </table>
+    
+    <a href="/admin/create">Add Employee</a> | <a href="/admin">AllEmpList</a>
 </body>
 </html>

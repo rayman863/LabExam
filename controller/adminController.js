@@ -3,13 +3,8 @@ var userModel 	= require.main.require('./models/adminModel');
 var router 		= express.Router();
 
 router.get('/', function(req, res){
-	res.render('admin/index');
-});
-
-router.get('/view_users', function(req, res){
-	
 	userModel.getAll(function(results){
-		res.render('home/userlist', { userList : results, uname: req.session.username});
+		res.render('admin/index', { userList : results, uname: req.session.username});
 	});
 });
 

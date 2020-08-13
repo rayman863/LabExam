@@ -14,7 +14,7 @@ module.exports ={
 	},
 
 	getAll: function(callback){
-		var sql = "select * from user";
+		var sql = "select * from admin";
 		db.getResults(sql, null,  function(result){
 			if(result.length > 0){
 				callback(result);
