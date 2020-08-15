@@ -60,7 +60,7 @@ module.exports ={
 	},
 
 	delete: function(id, callback){
-		var sql = "delete from user where id=?";
+		var sql = "delete from admin where empid=?";
 		db.execute(sql, [id], function(status){
 			if(status){
 				callback(true);

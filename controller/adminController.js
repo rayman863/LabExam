@@ -102,26 +102,28 @@ router.post('/Update/:id',[
     }
     userModel.update(user,function(result)
     {
-        res.redirect('/admin/AllEmployeeList');
+        res.redirect('admin/AllEmployeeList');
     })
 })
 
 
 router.get('/Delete/:id', function(req, res){
-	
-	userModel.get(req.params.id, function(result){
-		res.render('/admin/deleteemp', {user: result});
+	user={
+        userid: req.params.id
+    }
+	userModel.get(user, function(result){
+		res.render('admin/deleteemp', {user: result});
 	});
 	
 });
 
 router.post('/Delete/:id', function(req, res){
 
-	userModel.delete(req.body.id, function(status){
+	userModel.delete(req.params.id, function(status){
 		if(status){
-			res.redirect('/admin/AllEmployeeList');
-		}else{
 			res.redirect('/admin');
+		}else{
+			res.redirect('/admin/AllEmployeeList');
 		}
 	});
 });
