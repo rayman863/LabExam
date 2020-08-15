@@ -5,7 +5,6 @@ var login 		= require('./controller/loginController');
 var admin 		= require('./controller/adminController');
 var emp 		= require('./controller/empController');
 var logout 		= require('./controller/logout');
-//var admin		= require('./controller/adminController');
 var app 		= express();
 
 //config
@@ -17,7 +16,7 @@ app.use(exSession({secret: 'my secret @*#', saveUninitialized: true, resave: fal
 
 app.use('/login', login);
 app.use('/admin', admin);
-//app.use('/emp', emp);
+app.use('/employee', emp);
 app.use('/logout', logout);
 
 

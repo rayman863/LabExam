@@ -26,10 +26,30 @@ router.post('/', [
 		password: req.body.password
 	};
 
+	userModel.getType(user,function(result)
+    	{
+			user = {
+				uname: result.username,
+				password: result.password,
+				type: result.type
+			};
+    	});
+
 	userModel.validate(user, function(status){
+		
 		if(status){
+			console.log(user.uname);
+			console.log(user.type);
 			req.session.username = user.uname;
-			res.redirect('/admin');
+			req.session.type = user.type;
+
+			if(req.session.type == "Admin"){
+				res.redirect('/admin');
+			}
+			else if(req.session.type == "Employee"){
+				res.redirect('/employee');
+			}
+			
 		}else{
 			res.send('invalid username/password');
 		}

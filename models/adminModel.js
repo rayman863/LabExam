@@ -6,6 +6,18 @@ module.exports ={
 		var sql = "select * from admin where empid=?";
 		db.getResults(sql, [user.userid], function(result){
 			if(result.length > 0){
+				//console.log(result);
+				callback(result[0]);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
+	getType: function(user, callback){
+		var sql = "select * from admin where username=? and password=?";
+		db.getResults(sql, [user.uname, user.password], function(result){
+			if(result.length > 0){
 				console.log(result);
 				callback(result[0]);
 			}else{
