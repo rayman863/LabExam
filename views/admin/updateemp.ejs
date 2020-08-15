@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Employee</title>
+
+</head>
+<body>
+	
+	<a href="/admin/">Back</a> 
+	<!-- <a href="/logout">Logout</a> -->
+	
+	<h3>Update Employee</h3>
+
+	<form method="post">
+		<table>
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="uname" value="<%= username %>"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type="password" name="confirmpassword"></td>
+			</tr>
+			<tr>
+				<td>Type</td>
+				<td><input type="text" name="type" value="<%= type %>" readonly></td>
+				<!-- <td>
+					<select name="type" id="" selected="">
+						<option value="Admin">Admin</option>
+						<option value="Employee">Employee</option>
+					</select>
+				</td> -->
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input type="number" name="phone" value="<%= phone %>"></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="text" name="gender" value="<%= gender %>"></td>
+			</tr>
+			<tr>
+				<td>Designation</td>
+				<td><input type="text" name="designation" value="<%= designation %>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="submit" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>

@@ -2,10 +2,11 @@ var db = require('./db');
 
 module.exports ={
 
-	get: function(id, callback){
-		var sql = "select * from user where id=?";
-		db.getResults(sql, [id], function(result){
+	get: function(user, callback){
+		var sql = "select * from admin where empid=?";
+		db.getResults(sql, [user.userid], function(result){
 			if(result.length > 0){
+				console.log(result);
 				callback(result[0]);
 			}else{
 				callback([]);
@@ -48,8 +49,8 @@ module.exports ={
 	},
 
 	update: function(user, callback){
-		var sql = "update user set username=?, password=?, type=? where id=?";
-		db.execute(sql, [user.uname, user.password, user.type, user.id], function(status){
+		var sql = "update admin set username=?, password=?, phone=?, gender=?, designation=? where empid=?";
+		db.execute(sql, [user.username, user.password, user.phone, user.gender, user.designation, user.id], function(status){
 			if(status){
 				callback(true);
 			}else{
